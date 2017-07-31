@@ -1,19 +1,32 @@
 
 const passport = require('passport')
-const port = process.env.PORT || 5000;
-const express = require('express')
+
+const keys = require('./config/keys');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const express = require('express')
 const app = express();
 
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: '/auth/google/callback'
+    },(accessToken)=>{
+      console.log(accessToken)
+    }
+  ));
 
-// const clientID = '1090551703725-1dqnjkb33sf0fnsf171r3k4a7hpfhjt7.apps.googleusercontent.com'
-// const clientSecret = 'm5XzJGbdsYf1KZugEZVdrOt-'
 
+app.get('/auth/google', passport.authenticate ('google', {
+      scope: ['profile', 'email']
+   })
+)
 
-passport.use(new GoogleStrategy());
+// secent route for callback redirection from passport auth
+app.get('/auth/google/callback', passport.authenticate('google'));
 
-
-
-app.listen(port, function () {
-  console.log('Example app listening on port 3000!')
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(port, 'using port 3000')
 })
