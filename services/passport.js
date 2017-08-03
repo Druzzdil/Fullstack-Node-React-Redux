@@ -6,6 +6,20 @@ const mongoose = require('mongoose');
 
 const User = mongoose.model('user');
 
+
+passport.serializeUser((user, done)=>{
+    done(null, user.id);
+})
+
+//resposible for generating cookie, id it's from mongo id record
+
+// passport.deserializeUser((id, done) => {
+//   User.findById(id, (err, user)=> {
+//     done(err, user);
+//   });
+// });
+
+
 passport.use(
   new GoogleStrategy(
     {
