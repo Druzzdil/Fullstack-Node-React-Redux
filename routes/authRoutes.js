@@ -7,5 +7,16 @@ module.exports = app => {
         })
     )
     app.get('/auth/google/callback', passport.authenticate('google'));
+
+    app.get('/api/user', (req,res) => {
+        res.send(req.user).then((result) => {
+            console.log(result);
+        })
+    });
+
+    app.get('/api/logout', (req,res) => {
+        req.logout();
+        res.send(req.user);
+    })
 }
 // a convinient way of exporting routes -- refactoring project tructure
