@@ -3,7 +3,7 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
 const mongoose = require('mongoose');
-// var cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session')
 const User = mongoose.model('user');
 
 
@@ -18,7 +18,6 @@ passport.deserializeUser((id, done) => {
       done(null, user)
   });
 });
-
 
 
 passport.use(
