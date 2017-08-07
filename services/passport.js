@@ -33,7 +33,7 @@ passport.use(
               googleID: profile.id
           }).then((existingUser) => {
           if(existingUser) {
-            return done(null, existingUser);
+            done(null, existingUser);
           }
           else {
             new User({googleID: profile.id})
