@@ -16,5 +16,9 @@ module.exports = app => {
         req.logout();
         res.send(req.user)
     })
+    app.get('/', (req,res) => {
+        app.use(express.static('./public'))
+    });
+
 }
 // a convinient way of exporting routes -- refactoring project tructure
