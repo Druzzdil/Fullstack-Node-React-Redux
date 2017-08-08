@@ -7,18 +7,14 @@ const passport = require('passport');
 require('./models/User');
 require('./services/passport');
 
-
-
 mongoose.connect(keys.mongoURI, (err) =>{
-  if(err) throw err
+  if(err) {
+    console.log(err, 'this is error message');
+  }
 })
 
-//mongoose connection established
 
 const app = express();
-
-
-
 app.use(express.static('public'))
 
 app.use(
