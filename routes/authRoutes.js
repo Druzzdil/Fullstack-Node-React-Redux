@@ -16,6 +16,8 @@ module.exports = app => {
         req.logout();
         res.send(req.user)
     })
+
+    
     app.get('/', (req,res) => {
         app.use(express.static('./public'))
     });
