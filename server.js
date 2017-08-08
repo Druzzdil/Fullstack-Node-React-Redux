@@ -9,7 +9,9 @@ require('./services/passport');
 
 
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI, (err) =>{
+  if(err) throw err
+})
 
 //mongoose connection established
 
