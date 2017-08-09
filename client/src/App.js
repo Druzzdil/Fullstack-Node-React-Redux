@@ -9,12 +9,11 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome Igor</h2>
-          
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <a href="http://stormy-ocean-63101.herokuapp.com/auth/google">Sing in with google</a>
+        <a href="/auth/google">Sing in with google</a>
       </div>
     );
   }

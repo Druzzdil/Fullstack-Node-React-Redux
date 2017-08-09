@@ -31,8 +31,6 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 
 
-
-
 //import routes from routes folder
 const port = process.env.PORT || 5000;
 
