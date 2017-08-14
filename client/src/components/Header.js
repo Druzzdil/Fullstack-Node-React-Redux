@@ -9,11 +9,11 @@ import React, { Component } from 'react';
 
   render() {
     return (
-      <nav>
+      <nav style={{backgroundColor: '#AB8ECD'}}>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Emaily</a>
+          <a href="" style={{marginLeft: '20px'}} className="brand-logo">Emaily</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="sass.html">Login with Google</a></li>
+            <li><a href="" style={{marginRight: '20px'}}>Login with Google</a></li>
           </ul>
         </div>
       </nav>
