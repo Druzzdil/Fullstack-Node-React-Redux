@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import reducers from './reducers';
 
 
+const store = createStore(reducers, {}, applyMiddleware() )
+//this is basic store with empty reducer
 
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+//provider is from redux, its know about states updates
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('root'))
